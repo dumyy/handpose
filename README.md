@@ -14,7 +14,7 @@
 
 our code is tested in Ubuntu 16.04 and 16.04 enviroment with GTX 1080 and RTX 2080 TI
 
-## Data Reprocess
+## Data Reprocessing
 
 Download the datasets (ICVL, NYU, and MSRA).
 
