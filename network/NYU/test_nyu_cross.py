@@ -9,9 +9,13 @@ from util.preprocess import augmentCrop,norm_dm
 import matplotlib.pyplot  as plt
 import tensorflow as tf
 
+
+
 rng=np.random.RandomState(23455)
 from netlib.basemodel import basenet2
 #from netlib.hh import crossNET_ht
+
+visual=True
 
 train_root='/home/dumyy/data/nyu/dataset/'
 di_1 = NYUImporter(train_root, cacheDir='../../cache/NYU/',refineNet=None,allJoints=False)
@@ -166,56 +170,58 @@ for i in range(pred_hands.shape[0]):
 f.close()
 plt.get_cmap()
 hand_edges=[[0,1],[2,3],[4,5],[6,7],[8,9],[9,10],[13,10],[13,1],[13,3],[13,5],[13,7],[13,11],[13,12]]
-for i in range(0,8252,10):
+if visual:
 
-    #
-    # plt.subplot(1,3,1)
-    # cc = test_label.reshape(-1, 14, 3)
-    # ccd = cc[:, :, 2]
-    # cw = np.tile(np.expand_dims(ccd[i], 0), (14, 1))
-    # ch = cw.T
-    # tri0 = (cw - ch)
-    # tri0[tri0 > 0] = 1
-    # tri0[tri0 < 0] = 0
-    # plt.imshow(tri0, cmap='gray')
-    #
-    # plt.subplot(1,3,2)
-    # cc = norm_hands.reshape(-1, 14, 3)
-    # ccd = cc[:, :, 2]
-    # cw = np.tile(np.expand_dims(ccd[i], 0), (14, 1))
-    # ch = cw.T
-    # tri = (cw - ch)
-    # tri[tri > 0] = 1
-    # tri[tri < 0] = 0
-    # plt.imshow(tri, cmap='gray')
-    #
-    #
-    #
-    # plt.subplot(1,3,3)
-    # aa=np.logical_xor(tri0,tri)
-    # plt.imshow(aa, cmap='gray')
+    for i in range(0,8252,10):
 
-    plt.imshow(np.squeeze(test_data[i]), cmap='gray')
-    jtIp = transformPoints2D(di_1.joints3DToImg(pred_hands[i]), Ms[i])
-    plt.scatter(jtIp[:, 0], jtIp[:, 1], c='r')
+        #
+        # plt.subplot(1,3,1)
+        # cc = test_label.reshape(-1, 14, 3)
+        # ccd = cc[:, :, 2]
+        # cw = np.tile(np.expand_dims(ccd[i], 0), (14, 1))
+        # ch = cw.T
+        # tri0 = (cw - ch)
+        # tri0[tri0 > 0] = 1
+        # tri0[tri0 < 0] = 0
+        # plt.imshow(tri0, cmap='gray')
+        #
+        # plt.subplot(1,3,2)
+        # cc = norm_hands.reshape(-1, 14, 3)
+        # ccd = cc[:, :, 2]
+        # cw = np.tile(np.expand_dims(ccd[i], 0), (14, 1))
+        # ch = cw.T
+        # tri = (cw - ch)
+        # tri[tri > 0] = 1
+        # tri[tri < 0] = 0
+        # plt.imshow(tri, cmap='gray')
+        #
+        #
+        #
+        # plt.subplot(1,3,3)
+        # aa=np.logical_xor(tri0,tri)
+        # plt.imshow(aa, cmap='gray')
 
-    jtIt = transformPoints2D(di_1.joints3DToImg(gt_hands[i]), Ms[i])
-    plt.scatter(jtIt[:, 0], jtIt[:, 1], c='b')
+        plt.imshow(np.squeeze(test_data[i]), cmap='gray')
+        jtIp = transformPoints2D(di_1.joints3DToImg(pred_hands[i]), Ms[i])
+        plt.scatter(jtIp[:, 0], jtIp[:, 1], c='r')
 
-    for edge in hand_edges:
-        plt.plot(jtIp[:, 0][edge], jtIp[:, 1][edge], c='r')
-        plt.plot(jtIt[:, 0][edge], jtIt[:, 1][edge], c='b')
-    plt.pause(0.1)
-    plt.text(0, 0, str(i))
+        jtIt = transformPoints2D(di_1.joints3DToImg(gt_hands[i]), Ms[i])
+        plt.scatter(jtIt[:, 0], jtIt[:, 1], c='b')
 
-    plt.pause(0.01)
-    #plt.savefig("../img/img_{}.png".format(i))
-    plt.cla()
+        for edge in hand_edges:
+            plt.plot(jtIp[:, 0][edge], jtIp[:, 1][edge], c='r')
+            plt.plot(jtIt[:, 0][edge], jtIt[:, 1][edge], c='b')
+        plt.pause(0.1)
+        plt.text(0, 0, str(i))
+
+        plt.pause(0.01)
+        #plt.savefig("../img/img_{}.png".format(i))
+        plt.cla()
 
 
 
-    # plt.savefig("../img/img_{}.png".format(i))
-    # plt.cla()
+        # plt.savefig("../img/img_{}.png".format(i))
+        # plt.cla()
 
 
 
