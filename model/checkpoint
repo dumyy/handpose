@@ -1,0 +1,2 @@
+model_checkpoint_path: "crossInfoNet_nyu.ckpt"
+all_model_checkpoint_paths: "crossInfoNet_nyu.ckpt"
