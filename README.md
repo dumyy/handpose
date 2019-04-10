@@ -45,5 +45,5 @@ to evaluate the accuracy of the proposed *CrossInfoNet* on the ICVL, NYU and MSR
 
 We also tested the perfomance on the HANDS 17 frame-based hand pose estiamtion challenge dataset. Here is the result on Feb.2, 2019.
 
-![hands](https://github.com/dumyy/Projects/blob/master/figs/result/hands.png)
+![hands](https://github.com/dumyy/handpose/blob/master/figs/hands.png)
 
