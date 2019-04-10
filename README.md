@@ -20,8 +20,11 @@ Download the datasets (ICVL, NYU, and MSRA).
 
 Thanks [DeepPrior++](https://arxiv.org/pdf/1708.08325.pdf) for providing the base data reprocess and online data augmentation codes.
 
-We use the precomputed centers of [V2V-PoseNet](http://openaccess.thecvf.com/content_cvpr_2018/html/Moon_V2V-PoseNet_Voxel-to-Voxel_Prediction_CVPR_2018_paper.html)@[mks0601](https://github.com/mks0601/V2V-PoseNet_RELEASE)
+We use the precomputed centers of [V2V-PoseNet](http://openaccess.thecvf.com/content_cvpr_2018/papers/Moon_V2V-PoseNet_Voxel-to-Voxel_Prediction_CVPR_2018_paper.pdf)@[mks0601](https://github.com/mks0601/V2V-PoseNet_RELEASE)
 when training ICVL and NYU datasets. 
+
+## Network Architecture
+![net](https://github.com/dumyy/handpose/blob/master/figs/network.png)
 
 ## Traing and Testing
 
