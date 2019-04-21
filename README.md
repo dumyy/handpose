@@ -14,7 +14,7 @@ we will update the end code after the paper is available.
 - pillow
 - some other packages important
 
-our code is tested in Ubuntu 16.04 and 16.04 enviroment with GTX 1080 and RTX 2080 TI
+our code is tested in Ubuntu 14.04 and 16.04 enviroment with GTX 1080 and RTX 2080 TI
 
 ## Data Reprocessing
 
