@@ -56,13 +56,13 @@ def basenet2(inp,kp=0.5,is_training=True):
         palm_map = bottleneck(hand3_map_, 256, 128, stride=1, scope="palm_bottleneck")
 
         ht_palm = slim.conv2d(palm_map, 256, 1, 1, activation_fn=tf.nn.relu)
-        ht_palm_out_ = slim.conv2d(ht_palm, num_outputs=6, kernel_size=(3, 3), activation_fn=None)
+        ht_palm_out_ = slim.conv2d(ht_palm, num_outputs=9, kernel_size=(3, 3), activation_fn=None)
         ht_palm_out = tf.image.resize_bilinear(ht_palm_out_, (24, 24))
 
         fing_map = bottleneck(hand3_map_, 256, 128, stride=1, scope="fing_bottleneck")
 
         ht_fing = slim.conv2d(fing_map, 256, 1, 1, activation_fn=tf.nn.relu)
-        ht_fing_out_ = slim.conv2d(ht_fing, num_outputs=15, kernel_size=(3, 3), activation_fn=None)
+        ht_fing_out_ = slim.conv2d(ht_fing, num_outputs=5, kernel_size=(3, 3), activation_fn=None)
         ht_fing_out = tf.image.resize_bilinear(ht_fing_out_, (24, 24))
 
         res_fing_map = hand3_map_ - palm_map
@@ -77,7 +77,7 @@ def basenet2(inp,kp=0.5,is_training=True):
         end_fing_ = slim.dropout(end_fing_, keep_prob=kp, is_training=is_training)
         end_fing_ = slim.fully_connected(end_fing_, 1024, activation_fn=tf.nn.relu)
         end_fing_ = slim.dropout(end_fing_, keep_prob=kp, is_training=is_training)
-        end_fing_out = slim.fully_connected(end_fing_, 15*3, activation_fn=None)
+        end_fing_out = slim.fully_connected(end_fing_, 5*3, activation_fn=None)
 
         res_palm_map = hand3_map_ - fing_map
 
@@ -92,12 +92,12 @@ def basenet2(inp,kp=0.5,is_training=True):
         end_palm_ = slim.dropout(end_palm_, keep_prob=kp, is_training=is_training)
         end_palm_ = slim.fully_connected(end_palm_, 1024, activation_fn=tf.nn.relu)
         end_palm_ = slim.dropout(end_palm_, keep_prob=kp, is_training=is_training)
-        end_palm_out = slim.fully_connected(end_palm_, 6*3, activation_fn=None)
+        end_palm_out = slim.fully_connected(end_palm_, 9*3, activation_fn=None)
 
         end_hand = tf.concat([end_palm_, end_fing_], 1)
         # end_hand_ = slim.fully_connected(end_hand, 1024, activation_fn=tf.nn.relu)
         # end_hand_ = slim.dropout(end_hand_, keep_prob=kp, is_training=is_training)
-        end_hand_out = slim.fully_connected(end_hand, 21*3, activation_fn=None)
+        end_hand_out = slim.fully_connected(end_hand, 14*3, activation_fn=None)
 
         comb_ht_out = [ht_palm_out, ht_fing_out]
         comb_hand_out = [end_palm_out, end_fing_out]
