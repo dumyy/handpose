@@ -107,6 +107,6 @@ def basenet2(inp,kp=0.5,is_training=True):
     with tf.name_scope("htmap"):
         ht_map=global_fms[-4]
         ht_map=bottleneck(ht_map,256,128,stride=1,scope="htmap_bottleneck")
-        ht_out=slim.conv2d(ht_map,num_outputs=21,kernel_size=(3,3),stride=1,activation_fn=None)
+        ht_out=slim.conv2d(ht_map,num_outputs=14,kernel_size=(3,3),stride=1,activation_fn=None)
 
     return comb_ht_out,comb_hand_out,hand_out,ht_out
