@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('../../')#add root directory
 # import matplotlib
 # matplotlib.use('Agg')
 from data.importers import NYUImporter
