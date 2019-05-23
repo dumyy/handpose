@@ -39,6 +39,16 @@ For testing, just run the command in the path `$ROOT/network/NYU/`
 
     python test_nyu_cross.py
 
+For the MSRA dataset, just cd `$ROOT/network/MSRA/` directory, then run the train or test file, as follow:
+
+    train:  python train_and_test.py --test-sub ${sub-num}
+    test:   python test_msra.py --test-sub ${sub-num}
+
+`${sub-num}` is the subject that you use to test while cross-validation.
+
+In the end, you can use `python comb.py` to combine the 9 test results.
+    
+
 ## Results
 
 When testing, the model outputs the mean joint error. If you want to show the qualitative results, just let the `visual=True`.
