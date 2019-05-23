@@ -4,7 +4,15 @@ from netutil import resnet_v1
 from netutil import resnet_utils
 bottleneck=resnet_v1.bottleneck
 
-def basenet2(inp,kp=0.5,is_training=True):
+def basenet2(inp,kp=0.5,is_training=True,outdims=(14,9,5)):
+    '''
+
+    :param inp: input data
+    :param kp: droupout keep rate
+    :param is_training: is_trainging?
+    :param outdims: (hand_num,palm_num,finger_num)
+    :return: output
+    '''
     with tf.name_scope("bone_net"):
         blocks = [
             resnet_v1.resnet_v1_block('block1', base_depth=16, num_units=3, stride=2),
@@ -56,13 +64,13 @@ def basenet2(inp,kp=0.5,is_training=True):
         palm_map = bottleneck(hand3_map_, 256, 128, stride=1, scope="palm_bottleneck")
 
         ht_palm = slim.conv2d(palm_map, 256, 1, 1, activation_fn=tf.nn.relu)
-        ht_palm_out_ = slim.conv2d(ht_palm, num_outputs=9, kernel_size=(3, 3), activation_fn=None)
+        ht_palm_out_ = slim.conv2d(ht_palm, num_outputs=outdims[1], kernel_size=(3, 3), activation_fn=None)
         ht_palm_out = tf.image.resize_bilinear(ht_palm_out_, (24, 24))
 
         fing_map = bottleneck(hand3_map_, 256, 128, stride=1, scope="fing_bottleneck")
 
         ht_fing = slim.conv2d(fing_map, 256, 1, 1, activation_fn=tf.nn.relu)
-        ht_fing_out_ = slim.conv2d(ht_fing, num_outputs=5, kernel_size=(3, 3), activation_fn=None)
+        ht_fing_out_ = slim.conv2d(ht_fing, num_outputs=outdims[2], kernel_size=(3, 3), activation_fn=None)
         ht_fing_out = tf.image.resize_bilinear(ht_fing_out_, (24, 24))
 
         res_fing_map = hand3_map_ - palm_map
@@ -77,7 +85,7 @@ def basenet2(inp,kp=0.5,is_training=True):
         end_fing_ = slim.dropout(end_fing_, keep_prob=kp, is_training=is_training)
         end_fing_ = slim.fully_connected(end_fing_, 1024, activation_fn=tf.nn.relu)
         end_fing_ = slim.dropout(end_fing_, keep_prob=kp, is_training=is_training)
-        end_fing_out = slim.fully_connected(end_fing_, 5*3, activation_fn=None)
+        end_fing_out = slim.fully_connected(end_fing_, outdims[2]*3, activation_fn=None)
 
         res_palm_map = hand3_map_ - fing_map
 
@@ -92,12 +100,12 @@ def basenet2(inp,kp=0.5,is_training=True):
         end_palm_ = slim.dropout(end_palm_, keep_prob=kp, is_training=is_training)
         end_palm_ = slim.fully_connected(end_palm_, 1024, activation_fn=tf.nn.relu)
         end_palm_ = slim.dropout(end_palm_, keep_prob=kp, is_training=is_training)
-        end_palm_out = slim.fully_connected(end_palm_, 9*3, activation_fn=None)
+        end_palm_out = slim.fully_connected(end_palm_, outdims[1]*3, activation_fn=None)
 
         end_hand = tf.concat([end_palm_, end_fing_], 1)
         # end_hand_ = slim.fully_connected(end_hand, 1024, activation_fn=tf.nn.relu)
         # end_hand_ = slim.dropout(end_hand_, keep_prob=kp, is_training=is_training)
-        end_hand_out = slim.fully_connected(end_hand, 14*3, activation_fn=None)
+        end_hand_out = slim.fully_connected(end_hand, outdims[0]*3, activation_fn=None)
 
         comb_ht_out = [ht_palm_out, ht_fing_out]
         comb_hand_out = [end_palm_out, end_fing_out]
@@ -107,6 +115,6 @@ def basenet2(inp,kp=0.5,is_training=True):
     with tf.name_scope("htmap"):
         ht_map=global_fms[-4]
         ht_map=bottleneck(ht_map,256,128,stride=1,scope="htmap_bottleneck")
-        ht_out=slim.conv2d(ht_map,num_outputs=14,kernel_size=(3,3),stride=1,activation_fn=None)
+        ht_out=slim.conv2d(ht_map,num_outputs=outdims[0],kernel_size=(3,3),stride=1,activation_fn=None)
 
     return comb_ht_out,comb_hand_out,hand_out,ht_out
