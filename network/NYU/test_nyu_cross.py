@@ -14,15 +14,12 @@ import tensorflow as tf
 
 rng=np.random.RandomState(23455)
 from netlib.basemodel import basenet2
-#from netlib.hh import crossNET_ht
 
 visual=True
 
 train_root='/home/dumyy/data/nyu/dataset/'
 di_1 = NYUImporter(train_root, cacheDir='../../cache/NYU/',refineNet=None,allJoints=False)
 Seq_train = di_1.loadSequence('test', rng=rng, shuffle=False, docom=False,cube=(250,250,250))
-
-
 
 test_num=len(Seq_train.data)
 print test_num
@@ -54,21 +51,6 @@ label=tf.placeholder(dtype=tf.float32,shape=(None,42))
 
 
 batch_size=128
-#pred_out=basenet(inputs,kp=0.6,is_training=False)
-# pred_ht,predhands=basenet_twostages_ht(inputs,kp=0.6,is_training=False)
-# pred_palm=tf.reshape(predhands[0],(-1,9,3))
-# pred_fing=tf.reshape(predhands[1],(-1,5,3))
-# palm_1=tf.expand_dims(pred_palm[:,0:5,:],2)
-# pred_fing=tf.expand_dims(pred_fing,2)
-#
-# pred_fing=tf.reshape(tf.concat([pred_fing,palm_1],2),(-1,10,3))
-# palm_2=pred_palm[:,5:,:]
-#
-# pred_out=tf.concat([pred_fing,palm_2],1)
-
-
-#pred_cen, pred_palm, pred_hand, pred_ht,z_,res_center_reg,res_palm_reg,res_hand_reg,end_hand=scale_net(inputs,kp=1,is_training=False,outdims=(14,9,5))
-
 
 import tensorflow.contrib.slim as slim
 import tensorflow.contrib.layers as layers
@@ -88,23 +70,10 @@ with slim.arg_scope([slim.conv2d, slim.fully_connected],
                         scale=True,
                         epsilon=1e-5):
         pred_comb_ht, pred_comb_hand, pred_hand, pred_ht=basenet2(inputs,kp=1,is_training=False)
-#pred_comb_ht, pred_comb_hand, pred_hand, pred_ht, z_ = crossNET_ht(inputs, kp=1, is_training=False, outdims=(14,9,5))
 
-# ht_out, ht_palm_out, ht_fing_out, z_, \
-# end_palm_out, end_fing_out, \
-# branch_outs, refine_branch_outs, \
-# end_hand = newNet_ht(inputs, kp=1, is_training=False, outdims=(14,9,5))
 
 pred_out=pred_hand
-# pred_palm=tf.reshape(pred_comb_hand[0],(-1,9,3))
-# pred_fing=tf.reshape(pred_comb_hand[1],(-1,5,3))
-# palm_1=tf.expand_dims(pred_palm[:,0:5,:],2)
-# pred_fing=tf.expand_dims(pred_fing,2)
-#
-# pred_fing=tf.reshape(tf.concat([pred_fing,palm_1],2),(-1,10,3))
-# palm_2=pred_palm[:,5:,:]
-#
-# pred_out=tf.concat([pred_fing,palm_2],1)
+
 
 import time
 
@@ -132,18 +101,6 @@ with tf.Session() as sess:
 norm_hands=np.concatenate(pred_norm,0).reshape(-1,14,3)
 pred_hands=norm_hands*np.tile(np.expand_dims(cubes/2.,1),(1,14,1))+np.tile(np.expand_dims(coms,1),(1,14,1))
 gt_hands=test_label.reshape(-1,14,3)*np.tile(np.expand_dims(cubes/2.,1),(1,14,1))+np.tile(np.expand_dims(coms,1),(1,14,1))
-# cc=test_label.reshape(-1,14,3)
-# ccd=cc[:,:,2]
-# for ccd_ in ccd:
-#     cw=np.tile(np.expand_dims(ccd_,0),(14,1))
-#     print cw.shape
-#     ch=cw.T
-#     tri=(cw-ch)
-#     tri[tri>0]=1
-#     tri[tri<0]=0
-#     plt.imshow(tri,cmap='gray')
-#     plt.show()
-
 
 def getJointMeanError(jointID, gt, joints):
     return np.nanmean(np.sqrt(np.square(gt[:, jointID, :] - joints[:, jointID, :]).sum(axis=1)))
@@ -175,32 +132,6 @@ if visual:
 
     for i in range(0,8252,10):
 
-        #
-        # plt.subplot(1,3,1)
-        # cc = test_label.reshape(-1, 14, 3)
-        # ccd = cc[:, :, 2]
-        # cw = np.tile(np.expand_dims(ccd[i], 0), (14, 1))
-        # ch = cw.T
-        # tri0 = (cw - ch)
-        # tri0[tri0 > 0] = 1
-        # tri0[tri0 < 0] = 0
-        # plt.imshow(tri0, cmap='gray')
-        #
-        # plt.subplot(1,3,2)
-        # cc = norm_hands.reshape(-1, 14, 3)
-        # ccd = cc[:, :, 2]
-        # cw = np.tile(np.expand_dims(ccd[i], 0), (14, 1))
-        # ch = cw.T
-        # tri = (cw - ch)
-        # tri[tri > 0] = 1
-        # tri[tri < 0] = 0
-        # plt.imshow(tri, cmap='gray')
-        #
-        #
-        #
-        # plt.subplot(1,3,3)
-        # aa=np.logical_xor(tri0,tri)
-        # plt.imshow(aa, cmap='gray')
 
         plt.imshow(np.squeeze(test_data[i]), cmap='gray')
         jtIp = transformPoints2D(di_1.joints3DToImg(pred_hands[i]), Ms[i])
@@ -216,13 +147,10 @@ if visual:
         plt.text(0, 0, str(i))
 
         plt.pause(0.01)
-        #plt.savefig("../img/img_{}.png".format(i))
+        #plt.savefig("../image/NYU/img_{}.png".format(i))
         plt.cla()
 
 
-
-        # plt.savefig("../img/img_{}.png".format(i))
-        # plt.cla()
 
 
 

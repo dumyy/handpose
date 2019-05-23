@@ -43,7 +43,7 @@ print "testing data {}".format(imgs_test.shape[0])
 print "done"
 
 
-visual=False
+
 visual_aug=False
 
 hand_edges=[[0,1],[2,3],[4,5],[6,7],[8,9],[9,10],[13,10],[13,1],[13,3],[13,5],[13,7],[13,11],[13,12]]
@@ -79,7 +79,7 @@ with slim.arg_scope([slim.conv2d, slim.fully_connected],
                         center=True,
                         scale=True,
                         epsilon=1e-5):
-        pred_comb_ht, pred_comb_hand, pred_hand, pred_ht=basenet2(inputs,kp=kp,is_training=is_train)
+        pred_comb_ht, pred_comb_hand, pred_hand, pred_ht=basenet2(inputs,kp=kp,is_training=is_train,outdims=outdims)
 
 
 gt_fing_ht=gt_ht[:,:,:,0:10][:,:,:,0::2]
