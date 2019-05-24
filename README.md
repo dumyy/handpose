@@ -46,7 +46,7 @@ For the MSRA dataset, just cd `$ROOT/network/MSRA/` directory, then run the trai
 
 `${sub-num}` is the subject that you use to test while cross-validation.
 
-In the end, you can use `python comb.py` to combine the 9 test results.
+In the end, you can use `python combtxt.py` to combine the 9 test results.
     
 
 ## Results
