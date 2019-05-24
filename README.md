@@ -1,6 +1,6 @@
 # CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation
 
-**This respository contains the implementation details of this [paper]().**
+**This respository contains the implementation details of this [paper](https://drive.google.com/file/d/17B2hZDrJ1ZanaQHcbs3E_ssleGjngPwh/view?usp=sharing).**
 
 we will update the end code after the paper is available.
 
