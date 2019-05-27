@@ -2,6 +2,8 @@
 
 **This respository contains the implementation details of this [paper](https://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2Fdumyy%2Fhandpose%2Fraw%2Fmaster%2Ffigs%2F5207.pdf&embedded=true&chrome=false&dov=1).**
 
+the [project](https://sites.google.com/view/dumyy/home/cvpr2019) pape can be found here.
+
 we will update the end code after the paper is available.
 
 ## Requirments
