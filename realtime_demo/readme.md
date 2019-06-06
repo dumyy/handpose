@@ -31,7 +31,7 @@ I have changed the model name from `crossInfoNet_nyu.ckpt` to `crossInfoNet_NYU.
 
 When you are testing, 30cm -40 cm is a good choice for your hand to the camera.
 
-The end GUI shot is like the follow show.
+The end GUI screenshot is like the follow show.
 
 ![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)
 
