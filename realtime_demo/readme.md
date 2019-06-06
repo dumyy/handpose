@@ -16,7 +16,7 @@ In this demo, we use Realsense SR300 device.
 
 ## realtime running
 
-just `cd realtime_demo` and `run` the command in you Terminal:
+Just `cd realtime_demo` and `run` the command in you Terminal:
 
     python real_time_show_demo.py --dataset ${dataset_name}
 
@@ -27,7 +27,7 @@ eg. You want to load nyu model for realtime testing, use `nyu` to replace `${dat
  
 ## Something else
 
-when you are testing, 30cm -40 cm is a good choice for your hand to the camera.
+When you are testing, 30cm -40 cm is a good choice for your hand to the camera.
 
 The end GUI shot is like the follow show.
 
