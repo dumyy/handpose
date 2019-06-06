@@ -592,7 +592,10 @@ class HandDetector(object):
             #plt.imshow(part);  plt.show()
             ret, thresh = cv2.threshold(part, 1, 255, cv2.THRESH_BINARY)
             thresh = thresh.astype(dtype=numpy.uint8)
-            im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            #opencv2
+            contours, hierarchy=cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            #opencv3
+            #im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
             for c in range(len(contours)):
                 if cv2.contourArea(contours[c]) > 200:

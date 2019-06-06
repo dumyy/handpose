@@ -206,7 +206,7 @@ with tf.Session() as sess:
 
         if last_e>=meane:
             last_e=meane
-            saver.save(sess,'../../model/crossInfoNet_nyu.ckpt')
+            saver.save(sess,'../../model/crossInfoNet_NYU.ckpt')
             logt = open('../../log/mean.error.epoch/log_nyu.txt', 'a+')
             logt.write("*********************")
             logt.write('\n')

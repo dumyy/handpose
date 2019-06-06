@@ -82,7 +82,7 @@ saver=tf.train.Saver(max_to_keep=5)
 with tf.Session() as sess:
     init = tf.global_variables_initializer()
     sess.run(init)
-    saver.restore(sess,'../../model/crossInfoNet_nyu.ckpt')
+    saver.restore(sess,'../../model/crossInfoNet_NYU.ckpt')
     loopv = test_num // batch_size
     other = test_data[loopv * batch_size:]
     a=time.time()
