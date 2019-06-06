@@ -24,6 +24,8 @@ eg. You want to load nyu model for realtime testing, use `nyu` to replace `${dat
 
     python real_time_show_demo.py --dataset nyu
     python real_time_show_demo.py --dataset msra
+
+I have changed the model name from `crossInfoNet_nyu.ckpt` to `crossInfoNet_NYU.ckpt`.
  
 ## Something else
 
