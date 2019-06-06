@@ -10,7 +10,7 @@ You can use pip install pyrealsense2 esaily.
 
     sudo pip install pyrealsense2
   
-Or you can also built the python lib from [source](https://github.com/dumyy/librealsense/tree/master/wrappers/python) 
+Or you can also build the python lib from [source](https://github.com/dumyy/librealsense/tree/master/wrappers/python) 
 
 In this demo, we use Realsense SR300 device.
 
