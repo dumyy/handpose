@@ -20,7 +20,6 @@ import tensorflow.contrib.layers as layers
 class realsense_im(object):
     def __init__(self,image_size=(640,480)):
         self.pipeline = rs.pipeline()
-        rs.pipeline()
         config = rs.config()
         config.enable_stream(rs.stream.depth, image_size[0], image_size[1], rs.format.z16, 30)
         config.enable_stream(rs.stream.color, image_size[0], image_size[1], rs.format.bgr8, 30)
@@ -67,16 +66,19 @@ class model_setup():
 
     def __config(self):
         #set your own realsense info here
-        di = DepthImporter(fx=475.268, fy=-475.268, ux=313.821, uy=246.075)
+        flag=-1
+        if self._dataset == 'icvl':
+            flag=1
+        di = DepthImporter(fx=475.268, fy=flag*475.268, ux=313.821, uy=246.075)
         config = None
         if self._dataset=='msra':
-            config = {'fx': di.fx, 'fy': -di.fy, 'cube': (175, 175, 175), 'im_size': (96, 96)}
+            config = {'fx': di.fx, 'fy': abs(di.fy), 'cube': (175, 175, 175), 'im_size': (96, 96)}
         if self._dataset == 'nyu':
-            config = {'fx': di.fx, 'fy': -di.fy, 'cube': (250, 250, 250), 'im_size': (96, 96)}
+            config = {'fx': di.fx, 'fy': abs(di.fy), 'cube': (250,250, 250), 'im_size': (96, 96)}
         if self._dataset == 'icvl':
-            config = {'fx': di.fx, 'fy': -di.fy, 'cube': (250, 250, 250), 'im_size': (96, 96)}
+            config = {'fx': di.fx, 'fy': abs(di.fy), 'cube': (240, 240, 240), 'im_size': (96, 96)}
         if self._dataset == 'bighand':
-            config = {'fx': di.fx, 'fy': -di.fy, 'cube': (220, 220, 220), 'im_size': (96, 96)}
+            config = {'fx': di.fx, 'fy': abs(di.fy), 'cube': (220, 220, 220), 'im_size': (96, 96)}
         return di, config
 
     def __crop_cube(self):
@@ -117,6 +119,8 @@ class model_setup():
             self.saver.restore(sess, self.model_path)
             while True:
                 depth_frame, color_frame = realsense_dev.get_image()
+                if self._dataset=='icvl':
+                    depth_frame=np.fliplr(depth_frame)
                 frame2 = depth_frame.copy()
                 crop1, M, com3D = rtp.detect(frame2)
                 crop = crop1.reshape(1, crop1.shape[0], crop1.shape[1], 1).astype('float32')

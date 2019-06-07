@@ -29,7 +29,9 @@ I have changed the model name from `crossInfoNet_nyu.ckpt` to `crossInfoNet_NYU.
  
 ## Something else
 
-When you are testing, 30cm -40 cm is a good choice for your right hand to the camera.
+When you are testing, 30cm -40 cm is a good choice for your **right hand** to the camera.
+ 
+For the **icvl** demo, the depth image has been flipped.
 
 The end GUI screenshot is like the follow show.
 
@@ -38,7 +40,7 @@ The end GUI screenshot is like the follow show.
 |msra|![shot0](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)|![b0](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
 |nyu|![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2019:59:10.png)|![b1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:09:37.png)
 |bighand|![shot2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:11:52.png)|![b2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:12:36.png)
-
+|icvl|![shot3](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2023:42:14.png)|![b3](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2023:44:36.png)
 
 
 
