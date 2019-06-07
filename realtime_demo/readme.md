@@ -29,14 +29,15 @@ I have changed the model name from `crossInfoNet_nyu.ckpt` to `crossInfoNet_NYU.
  
 ## Something else
 
-When you are testing, 30cm -40 cm is a good choice for your hand to the camera.
+When you are testing, 30cm -40 cm is a good choice for your right hand to the camera.
 
 The end GUI screenshot is like the follow show.
 
 |model|screenshot1|screenshot2|
 |:---:|:---:|:---:|
-|msra|![shot](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)|![b](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
-
+|msra|![shot0](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)|![b0](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
+|nyu|![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%19:59:10.png)|![b1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%20:09:37.png)
+|bighand|![shot2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:11:52.png)|[b2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:12:36.png)
 
 
 
