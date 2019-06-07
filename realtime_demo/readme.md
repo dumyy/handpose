@@ -33,6 +33,10 @@ When you are testing, 30cm -40 cm is a good choice for your hand to the camera.
 
 The end GUI screenshot is like the follow show.
 
+|a|b|
+|---|---|
+|![shot](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)|![b](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
+
 
 
 
