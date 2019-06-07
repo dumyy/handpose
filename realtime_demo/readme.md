@@ -6,7 +6,7 @@
 
 ## realsense-lib install
 
-You can use pip install pyrealsense2 esaily.
+You can use pip to install pyrealsense2 esaily.
 
     sudo pip install pyrealsense2
   
