@@ -29,10 +29,16 @@ eg. You want to load nyu model for realtime testing, use `nyu` to replace `${dat
 
 When you are testing, 30cm -40 cm is a good choice for your hand to the camera.
 
-The end GUI shot is like the follow show.
+The end GUI screenshot is like the follow show.
 
-![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)
+|a|b|
+|:---:|:---:|
+|![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)
+|![shot2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
+|
 
 
-![shot2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
+
+
+
 
