@@ -36,8 +36,8 @@ The end GUI screenshot is like the follow show.
 |model|screenshot1|screenshot2|
 |:---:|:---:|:---:|
 |msra|![shot0](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:15.png)|![b0](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-06%2022:44:31.png)
-|nyu|![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%19:59:10.png)|![b1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%20:09:37.png)
-|bighand|![shot2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:11:52.png)|[b2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:12:36.png)
+|nyu|![shot1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2019:59:10.png)|![b1](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:09:37.png)
+|bighand|![shot2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:11:52.png)|![b2](https://github.com/dumyy/handpose/blob/master/figs/Screenshot%202019-06-07%2020:12:36.png)
 
 
 
