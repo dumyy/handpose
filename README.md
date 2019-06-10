@@ -16,7 +16,14 @@ we will update the end code after the paper is available.
 - pillow
 - some other packages important
 
-our code is tested in Ubuntu 14.04 and 16.04 environment with GTX 1080 and RTX 2080 TI
+our code is tested in Ubuntu 14.04 and 16.04 environment with GTX 1080 and RTX 2080 TI.
+
+2 examples
+
+- config 1: gtx1080+cuda9.0+cudnn7.x+tensorflow1.9+ubuntu16.04
+- config 2: rtx2080ti+cuda10+cudnn7.x+tensorflow1.13+ubuntu16.04
+
+You should match right cudnn version in this [site](https://developer.nvidia.com/rdp/cudnn-archive)
 
 ## Data Reprocessing
 
@@ -60,4 +67,9 @@ to evaluate the accuracy of the proposed *CrossInfoNet* on the ICVL, NYU and MSR
 We also tested the perfomance on the HANDS 17 frame-based hand pose estiamtion challenge dataset. Here is the result on Feb.2, 2019.
 
 ![hands](https://github.com/dumyy/handpose/blob/master/figs/hands.png)
+
+
+## Realtime demo
+
+More details can be found in the `realtime_demo` directory.
 
