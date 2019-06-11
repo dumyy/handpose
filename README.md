@@ -1,10 +1,8 @@
 # CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation
 
-**This respository contains the implementation details of this [paper](https://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2Fdumyy%2Fhandpose%2Fraw%2Fmaster%2Ffigs%2F5207.pdf&embedded=true&chrome=false&dov=1).**
-
+**This respository contains the implementation details of this [paper](http://openaccess.thecvf.com/content_CVPR_2019/papers/Du_CrossInfoNet_Multi-Task_Information_Sharing_Based_Hand_Pose_Estimation_CVPR_2019_paper.pdf)
 The [project](https://sites.google.com/view/dumyy/home/cvpr2019) page can be found here.
 
-we will update the end code after the paper is available.
 
 ## Requirments
 
@@ -71,5 +69,5 @@ We also tested the perfomance on the HANDS 17 frame-based hand pose estiamtion c
 
 ## Realtime demo
 
-More details can be found in the `realtime_demo` directory.
+More details can be found in the [`realtime_demo`](https://github.com/dumyy/handpose/tree/master/realtime_demo) directory.
 
