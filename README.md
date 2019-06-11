@@ -1,6 +1,7 @@
 # CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation
 
 **This respository contains the implementation details of this [paper](http://openaccess.thecvf.com/content_CVPR_2019/papers/Du_CrossInfoNet_Multi-Task_Information_Sharing_Based_Hand_Pose_Estimation_CVPR_2019_paper.pdf)
+
 The [project](https://sites.google.com/view/dumyy/home/cvpr2019) page can be found here.
 
 
