@@ -33,6 +33,8 @@ Thanks [DeepPrior++](https://arxiv.org/pdf/1708.08325.pdf) for providing the bas
 We use the precomputed centers of [V2V-PoseNet](http://openaccess.thecvf.com/content_cvpr_2018/papers/Moon_V2V-PoseNet_Voxel-to-Voxel_Prediction_CVPR_2018_paper.pdf)@[mks0601](https://github.com/mks0601/V2V-PoseNet_RELEASE)
 when training ICVL and NYU datasets. 
 
+Please refer to `cache/${dataset-name}/readme.md` for more details.
+
 ## Traing and Testing
 
 Here we provide an example for NYU training. 
