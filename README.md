@@ -4,6 +4,7 @@
 
 The [project](https://sites.google.com/view/dumyy/home/cvpr2019) page can be found here.
 
+~~I have graduated from the university as a master, so this rep. may not be updated anymore.~~
 
 ## Requirments
 
